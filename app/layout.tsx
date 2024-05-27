@@ -3,6 +3,7 @@ import "./globals.css";
 import Warnings from "./components/warnings";
 import { assistantId } from "./assistant-config";
 const inter = Inter({ subsets: ["latin"] });
+import { IconFrontRow } from "./components/ui/icons";
 
 export const metadata = {
   title: "Assistants API Quickstart",
@@ -12,12 +13,12 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, inverted }) {
   return (
     <html lang="en">
       <body className={inter.className}>
         {assistantId ? children : <Warnings />}
-        <img className="logo" src="/openai.svg" alt="OpenAI Logo" />
+        <IconFrontRow className="logo" inverted />
       </body>
     </html>
   );
