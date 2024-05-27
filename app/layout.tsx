@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Warnings from "./components/warnings";
@@ -13,12 +14,17 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children, inverted }) {
+interface RootLayoutProps {
+  children: ReactNode;
+  inverted: boolean;
+}
+
+export default function RootLayout({ children, inverted }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={inter.className}>
         {assistantId ? children : <Warnings />}
-        <IconFrontRow className="logo" inverted />
+        <IconFrontRow className="logo" inverted={inverted} />
       </body>
     </html>
   );
