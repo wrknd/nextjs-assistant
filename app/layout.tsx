@@ -16,15 +16,14 @@ export const metadata = {
 
 interface RootLayoutProps {
   children: ReactNode;
-  inverted: boolean;
 }
 
-export default function RootLayout({ children, inverted }: RootLayoutProps) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={inter.className}>
         {assistantId ? children : <Warnings />}
-        <IconFrontRow className="logo" inverted={inverted} />
+        <IconFrontRow className="logo" />
       </body>
     </html>
   );
